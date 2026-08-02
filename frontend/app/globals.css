@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Design tokens - validated data-viz reference palette (light + dark).
+  Dark values apply under the `.dark` class (Tailwind darkMode: 'class').
+*/
+:root {
+  --plane: #f9f9f7;
+  --surface: #fcfcfb;
+  --surface-2: #f2f1ee;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --hairline: #e1e0d9;
+  --accent: #2a78d6;
+  --accent-soft: #eaf1fb;
+
+  /* chart roles */
+  --viz-surface: #fcfcfb;
+  --viz-grid: #e1e0d9;
+  --viz-axis: #c3c2b7;
+  --viz-muted: #898781;
+  --series-1: #2a78d6; /* blue  */
+  --series-2: #008300; /* green */
+  --series-3: #e87ba4; /* magenta */
+  --seq-fill: #cde2fb;
+  --status-good: #0ca30c;
+  --status-warning: #fab219;
+  --status-serious: #ec835a;
+  --status-critical: #d03b3b;
+}
+
+.dark {
+  --plane: #0d0d0d;
+  --surface: #1a1a19;
+  --surface-2: #242422;
+  --ink: #ffffff;
+  --ink-2: #c3c2b7;
+  --muted: #898781;
+  --hairline: #2c2c2a;
+  --accent: #3987e5;
+  --accent-soft: #16233a;
+
+  --viz-surface: #1a1a19;
+  --viz-grid: #2c2c2a;
+  --viz-axis: #383835;
+  --viz-muted: #898781;
+  --series-1: #3987e5;
+  --series-2: #008300;
+  --series-3: #d55181;
+  --seq-fill: #16233a;
+  --status-good: #0ca30c;
+  --status-warning: #fab219;
+  --status-serious: #ec835a;
+  --status-critical: #d03b3b;
+}
+
+html,
+body {
+  background: var(--plane);
+  color: var(--ink);
+  font-family: var(--font-sans, system-ui, -apple-system, "Segoe UI", sans-serif);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Recharts: keep chrome recessive and theme-aware. */
+.recharts-cartesian-grid line {
+  stroke: var(--viz-grid);
+}
+.recharts-cartesian-axis-line,
+.recharts-cartesian-axis-tick-line {
+  stroke: var(--viz-axis);
+}
+.recharts-text {
+  fill: var(--viz-muted);
+}
+.recharts-tooltip-wrapper:focus {
+  outline: none;
+}
+
+/* Thin scrollbar for list panes */
+.thin-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: var(--hairline);
+  border-radius: 8px;
+}

@@ -1,0 +1,23 @@
+# Optional: run the whole stack with `docker compose up`.
+# Local dev without Docker is fully supported too — see the Makefile (`make api` / `make web`).
+services:
+  api:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      DEMO_MODE: "true"
+    volumes:
+      - api-data:/app/data
+
+  web:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      API_PROXY_TARGET: "http://api:8000"
+    depends_on:
+      - api
+
+volumes:
+  api-data:

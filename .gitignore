@@ -1,0 +1,41 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+build/
+
+# ---- Node / Next ----
+node_modules/
+.next/
+out/
+.turbo/
+*.tsbuildinfo
+npm-debug.log*
+yarn-error.log*
+
+# ---- Local data / secrets (PRIVACY: never commit real mail, DBs, models) ----
+*.db
+*.sqlite3
+backend/data/*.db
+backend/data/local/
+backend/.env
+frontend/.env.local
+.env
+.env.*
+!*.example
+models_cache/
+*.pkl
+
+# ---- OS / editor ----
+.DS_Store
+.idea/
+.vscode/
+*.swp
